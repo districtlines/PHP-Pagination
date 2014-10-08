@@ -61,6 +61,7 @@
             'next' => 'Next &raquo;',
             'previous' => '&laquo; Previous',
             'alwaysShowPagination' => false,
+            'hashBang' => '',
             'clean' => false
         );
 
@@ -272,7 +273,7 @@
             foreach ($this->_variables as $_name => $_value) {
                 $$_name = $_value;
             }
-
+			
             // buffer handling
             ob_start();
             include 'render.inc.php';
@@ -420,6 +421,20 @@
         public function setTarget($target)
         {
             $this->_variables['target'] = $target;
+        }
+        
+         /**
+         * setHashBang
+         * 
+         * Sets the trailing hashbang for anchors.
+         * 
+         * @access public
+         * @param  string $hashBang
+         * @return void
+         */
+        public function setHashBang($hashBang)
+        {
+            $this->_variables['hashBang'] = $hashBang;
         }
 
         /**
